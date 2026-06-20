@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>pg模拟器 · 轻量导航页</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f9fc; /* 极浅蓝绿底 */
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 0 1rem 3rem;
+        }
+        a { color: #0a7e7e; text-decoration: none; transition: color 0.15s; }
+        a:hover { color: #0b5f5f; text-decoration: underline; }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.2rem 0 0.8rem;
+            border-bottom: 1px solid #d0e6e6;
+            flex-wrap: wrap;
+            gap: 0.6rem 1rem;
+        }
+        .top-nav .logo {
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #116b6b;
+            letter-spacing: -0.3px;
+        }
+        .top-nav .logo span { color: #2c8d8d; }
+        .top-nav .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-size: 0.95rem;
+        }
+        .top-nav .nav-links a { color: #2f4a5a; font-weight: 500; }
+        .top-nav .nav-links a:hover { color: #0e7a7a; }
+
+        /* 主容器 */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto 0;
+        }
+
+        /* hero 区域 */
+        .hero {
+            background: linear-gradient(145deg, #e0f2f0, #d4eceb);
+            border-radius: 24px;
+            padding: 2.8rem 2.5rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 18px rgba(20, 90, 90, 0.06);
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #104d4d;
+            letter-spacing: -0.4px;
+            line-height: 1.3;
+        }
+        .hero h1 i { color: #1f7e7e; font-style: normal; }
+        .hero p {
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+            max-width: 680px;
+            color: #1b4353;
+        }
+        .hero .meta-tip {
+            margin-top: 1.2rem;
+            display: inline-block;
+            background: rgba(255,255,255,0.5);
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #116666;
+            border: 1px solid #b6dbdb;
+        }
+
+        /* 核心介绍 + 再次访问提示 */
+        .core-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            background: #ffffffd9;
+            padding: 1.8rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px #bcd8d81a;
+        }
+        .core-text {
+            flex: 2;
+            min-width: 220px;
+        }
+        .core-text h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1b5353;
+            border-left: 4px solid #1d9b9b;
+            padding-left: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        .core-text p {
+            margin-bottom: 1rem;
+            color: #1d3847;
+        }
+        .core-text .reminder {
+            background: #e5f5f5;
+            padding: 0.8rem 1.2rem;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            border-left: 3px solid #239b9b;
+            color: #104545;
+        }
+        .core-side {
+            flex: 1.2;
+            min-width: 150px;
+            background: #eef6f6;
+            border-radius: 16px;
+            padding: 1.2rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .core-side span {
+            display: block;
+            font-weight: 500;
+            color: #0f5a5a;
+        }
+        .core-side .bookmark-advice {
+            font-size: 0.95rem;
+            color: #1f4a4a;
+            margin-top: 0.4rem;
+            line-height: 1.5;
+        }
+
+        /* 三个场景网格卡片 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.6rem;
+            margin: 2.8rem 0;
+        }
+        .scene-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem 1.8rem;
+            box-shadow: 0 4px 16px rgba(30, 80, 80, 0.06);
+            border: 1px solid #dfefef;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+        .scene-card:hover {
+            border-color: #7dc9c9;
+            box-shadow: 0 8px 22px rgba(30, 100, 100, 0.08);
+        }
+        .scene-card .card-icon {
+            font-size: 1.9rem;
+            line-height: 1;
+            margin-bottom: 0.6rem;
+            color: #1d8787;
+        }
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #164e4e;
+            margin-bottom: 0.3rem;
+        }
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #2b4a58;
+        }
+        .scene-card .scene-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #0b7b7b;
+            background: #e5f3f3;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            border: 1px solid #b3d4d4;
+        }
+
+        /* 常见说明 / 简洁faq */
+        .faq-compact {
+            background: #ffffffda;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.6rem;
+            margin: 2.6rem 0 1.5rem;
+            border: 1px solid #d2e7e7;
+        }
+        .faq-compact h4 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #145858;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #deecec;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item strong {
+            color: #0a5a5a;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item p {
+            color: #1e4050;
+            font-size: 0.95rem;
+        }
+
+        /* 页脚收藏提示 */
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #356c6c;
+            font-size: 0.95rem;
+            border-top: 1px solid #c2dddd;
+            padding-top: 2rem;
+        }
+        .footer-note a { font-weight: 500; }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .top-nav { flex-direction: column; align-items: flex-start; }
+            .top-nav .nav-links { gap: 1rem; flex-wrap: wrap; }
+            .hero { padding: 2rem 1.5rem; }
+            .hero h1 { font-size: 1.7rem; }
+            .core-section { padding: 1.4rem; }
+            .scene-grid { gap: 1.2rem; }
+            .faq-compact { padding: 1.4rem; }
+        }
+        @media (max-width: 420px) {
+            .hero h1 { font-size: 1.5rem; }
+            .scene-card { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav class="top-nav">
+    <div class="logo"><span>pg</span>sim</div>
+    <div class="nav-links">
+        <a href="#intro">概览</a>
+        <a href="#scenes">常用场景</a>
+        <a href="#faq">说明</a>
+        <a href="https://pgfreeplay.com">pg模拟器</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>再次访问，<i>持续收藏</i> · pg模拟器</h1>
+        <p>面向轻量探索与日常回访的设计，将常用入口与场景归纳为可快速定位的卡片。无需反复搜索，把工具留在手边。</p>
+        <div class="meta-tip">✦ 建议收藏至浏览器书签 · 信息密度适中</div>
+    </div>
+
+    <!-- 核心介绍 + 再次访问与收藏 -->
+    <section class="core-section" id="intro">
+        <div class="core-text">
+            <h2>为何值得再次打开</h2>
+            <p>对于经常使用模拟环境的用户，重复查找地址或依赖历史记录并不高效。<strong>pg模拟器</strong> 提供了一套稳定的页面结构，更新频率低且路径固定，适合加入书签栏或设为常用。</p>
+            <p>无论是快速测试、功能预览还是配置参考，保持一个可直达的入口能够节省每次的跳转步骤。尤其当工作流中涉及多个标签页时，固定的模拟器页面能减少认知负担。</p>
+            <div class="reminder">
+                📌 如果这是你第二次或第三次访问，不妨现在将 <a href="https://pgfreeplay.com">pg模拟器</a> 添加为书签。<br>
+                下次从收藏夹直接点击即可，无需重复搜索。
+            </div>
+        </div>
+        <div class="core-side">
+            <span>🔖 收藏指引</span>
+            <div class="bookmark-advice">
+                桌面端：Ctrl+D / Cmd+D<br>
+                移动端：浏览器菜单 → 添加书签<br>
+                建议命名：pg模拟器
+            </div>
+        </div>
+    </section>
+
+    <!-- 三个场景模块 (网格卡片) -->
+    <div class="scene-grid" id="scenes">
+        <div class="scene-card">
+            <div class="card-icon">🖥️</div>
+            <h3>功能预览</h3>
+            <p>在部署前快速核对界面反馈与操作逻辑，适合开发、测试或产品人员日常抽查。</p>
+            <span class="scene-link">常用入口</span>
+        </div>
+        <div class="scene-card">
+            <div class="card-icon">⚙️</div>
+            <h3>配置参考</h3>
+            <p>需要查阅模拟环境中的参数组合或默认行为时，保持一个稳定页面比翻阅文档更直接。</p>
+            <span class="scene-link">场景卡片</span>
+        </div>
+        <div class="scene-card">
+            <div class="card-icon">📋</div>
+            <h3>快速对比</h3>
+            <p>将模拟器页面与本地或生产环境并排，用于验证表现一致性，减少环境切换成本。</p>
+            <span class="scene-link">重复使用</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ摘要) -->
+    <div class="faq-compact" id="faq">
+        <h4>📌 常见说明 · 摘要</h4>
+        <div class="faq-item">
+            <strong>是否能长期使用同一链接？</strong>
+            <p>是的。站点路径保持稳定，建议将 <a href="https://pgfreeplay.com">pg模拟器</a> 收藏后直接访问，无需每次重新定位。</p>
+        </div>
+        <div class="faq-item">
+            <strong>页面内容会频繁变动吗？</strong>
+            <p>核心界面与模块结构以稳定为主，更新会提前通知，不会突然改变布局或隐藏功能。</p>
+        </div>
+        <div class="faq-item">
+            <strong>移动端体验如何？</strong>
+            <p>当前页面采用响应式网格与字体，手机浏览器可直接使用，也支持添加到主屏幕（部分浏览器）。</p>
+        </div>
+    </div>
+
+    <!-- 页脚 再次强调收藏 -->
+    <div class="footer-note">
+        <span>将 <a href="https://pgfreeplay.com">pg模拟器</a> 加入收藏夹 · 下次访问更省力</span><br>
+        <span style="font-size:0.85rem; color:#457878;">持续关注 · 轻量入口 · 简洁专业</span>
+    </div>
+
+</div>
+
+</body>
+</html>
