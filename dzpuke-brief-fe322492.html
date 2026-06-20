@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德州扑克在线 · 策略与竞技的信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f6f7f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e231f;
+            line-height: 1.7;
+            padding: 2.5rem 1.5rem;
+        }
+        .page {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1a2c1f;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #526651;
+            margin-bottom: 2.5rem;
+            border-left: 3px solid #90a88c;
+            padding-left: 1rem;
+        }
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1e3a24;
+            margin-top: 2.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.01em;
+            border-bottom: 1px solid #dbe1d7;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2b4a2f;
+            margin-bottom: 0.4rem;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        .card {
+            background: #ffffffec;
+            border-radius: 16px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #e3e9df;
+            transition: box-shadow 0.15s ease, transform 0.1s ease;
+        }
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(60, 80, 50, 0.06);
+            transform: translateY(-2px);
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: #2d3a2d;
+            margin: 0.2rem 0 0 0;
+        }
+        .card .icon-placeholder {
+            display: inline-block;
+            font-size: 1.6rem;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+        .card h3 {
+            margin-top: 0.1rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* 适合人群标签 */
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.8rem;
+            margin: 1.2rem 0 0.4rem 0;
+        }
+        .tag {
+            background: #e5ede1;
+            color: #1d3a1f;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 450;
+            letter-spacing: 0.02em;
+        }
+
+        /* 段落 / 链接区 */
+        .prose {
+            margin-top: 1.8rem;
+        }
+        .prose p {
+            margin-bottom: 1.2rem;
+        }
+        a {
+            color: #2b6d3a;
+            text-decoration: underline;
+            text-decoration-color: #b6cfaf;
+            text-underline-offset: 3px;
+            transition: color 0.1s;
+        }
+        a:hover {
+            color: #12401f;
+            text-decoration-color: #6f9a73;
+        }
+        .link-sentence {
+            background: #f0f4ec;
+            padding: 1rem 1.4rem;
+            border-radius: 28px;
+            margin: 2rem 0 1rem 0;
+            font-size: 0.95rem;
+            border-left: 4px solid #759c72;
+        }
+
+        /* 简约 hr */
+        .divider-light {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #cbd5c2, transparent);
+            margin: 2.5rem 0 1.5rem 0;
+        }
+
+        /* 小字号 / 脚注 */
+        .footnote {
+            color: #596b55;
+            font-size: 0.8rem;
+            margin-top: 2.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid #d4dccc;
+        }
+
+        /* 响应式 */
+        @media (max-width: 520px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            body {
+                padding: 1.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>德州扑克在线</h1>
+    <div class="subhead">决策 · 读人 · 概率 · 心态</div>
+
+    <!-- 主视觉卡片 (简短 hero) -->
+    <div style="background: #eef3e9; border-radius: 24px; padding: 1.8rem 1.5rem; margin-bottom: 0.8rem; border: 1px solid #dce5d5;">
+        <p style="font-size: 1rem; font-weight: 400; color: #1a2e1d;">
+            信息密度与心理博弈交织。每一手牌都是不完全信息下的决策实验：位置、底池赔率、对手范围、弃牌率——德州扑克在线环境将这些维度压缩在实时对局中，考验短期记忆与长期策略的一致性。
+        </p>
+        <p style="margin-top: 1rem; color: #3c5e3e; font-size: 0.9rem;">
+            从紧凶到松凶，从平衡到剥削，风格没有绝对最优，只有对动态场域的适应。
+        </p>
+    </div>
+
+    <!-- 用途卡片 —— 信息卡片式布局 -->
+    <h2>核心用途</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="icon-placeholder">📊</div>
+            <h3>范围构建</h3>
+            <p>翻前起手牌选择与位置调整，翻后范围持续演进。在德州扑克在线平台，你可以反复验证不同范围假设的期望值。</p>
+        </div>
+        <div class="card">
+            <div class="icon-placeholder">🧠</div>
+            <h3>对手建模</h3>
+            <p>下注尺度、时间线、弃牌率偏差——利用有限对局信息建立对手倾向画像，并动态调整反击策略。</p>
+        </div>
+        <div class="card">
+            <div class="icon-placeholder">⚖️</div>
+            <h3>底池管理</h3>
+            <p>控制底池大小，保护成牌同时让听牌获得合理赔率。剥削性下注与价值下注的边界随筹码深度变化。</p>
+        </div>
+        <div class="card">
+            <div class="icon-placeholder">🔄</div>
+            <h3>波动适应</h3>
+            <p>短期结果方差极大，BRM（资金管理）与心理耐受力是长期生存的底层架构。线上环境更易追踪统计。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 用标签形式 -->
+    <h2>适合人群</h2>
+    <div class="audience-tags">
+        <span class="tag">进阶休闲玩家</span>
+        <span class="tag">扑克爱好者</span>
+        <span class="tag">策略游戏迷</span>
+        <span class="tag">概率思维者</span>
+        <span class="tag">心理博弈研究者</span>
+        <span class="tag">资金管理实践者</span>
+    </div>
+    <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #3e5741;">
+        不论你是从翻前表格开始构建体系，还是想打磨翻后剥削技巧，只要愿意接受系统性思考，这里都有值得拆解的素材。
+    </p>
+
+    <!-- 一段自然链接段落 (纯文本嵌入链接) -->
+    <h2>在语境中理解策略</h2>
+    <div class="prose">
+        <p>
+            扑克理论常被简化为“起手牌表”或“下注尺度指南”，但实际对局中每个决策点都连接着对手范围、阻断牌和底池隐含赔率。许多玩家通过反复参与<a href="https://dzpuke.com">德州扑克在线</a>对局来沉淀自己的决策树，将抽象概念转化为条件反射。
+        </p>
+        <p>
+            一个常见的认知升级路径：从“我有什么牌”转变到“我的范围里有哪些组合，对手认为我有什么”。这种元认知在信息不对称中尤其关键，也是线上多桌同时进行的核心训练点。
+        </p>
+    </div>
+
+    <!-- 场景提示 + 自然链接句 -->
+    <div class="link-sentence">
+        <span style="font-weight: 450;">场景提示：</span>
+        如果你正在构建翻前范围或测试新策略，<a href="https://dzpuke.com">德州扑克在线</a>的低压力对局环境适合进行 A/B 测试——记录不同位置的开池频率与持续下注成功率，数据会告诉你理论的边界在哪里。
+    </div>
+
+    <!-- FAQ 摘要 (短条目) -->
+    <h2>常见思路摘要</h2>
+    <div style="margin-top: 0.2rem;">
+        <div style="display: flex; gap: 0.6rem; margin-bottom: 0.6rem; align-items: baseline;">
+            <span style="background: #cfdfc7; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #1a3a1e; flex-shrink: 0;">?</span>
+            <p style="font-size: 0.9rem; margin: 0;">翻后持续下注频率多少合理？—— 取决于翻牌结构和对手弃牌倾向，一般 60–75% 可作为基准，但需要根据对手调整。</p>
+        </div>
+        <div style="display: flex; gap: 0.6rem; margin-bottom: 0.6rem; align-items: baseline;">
+            <span style="background: #cfdfc7; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #1a3a1e; flex-shrink: 0;">?</span>
+            <p style="font-size: 0.9rem; margin: 0;">如何对付松凶玩家？—— 收紧范围，增加 3-bet 频率，利用位置在翻后采取更多过牌-加注。</p>
+        </div>
+        <div style="display: flex; gap: 0.6rem; align-items: baseline;">
+            <span style="background: #cfdfc7; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #1a3a1e; flex-shrink: 0;">?</span>
+            <p style="font-size: 0.9rem; margin: 0;">线上与线下最大区别？—— 线上多桌时更依赖统计与范围记忆，线下则侧重 live tell 与节奏控制。</p>
+        </div>
+    </div>
+
+    <div class="divider-light"></div>
+
+    <!-- 结语 / 提示 -->
+    <p style="font-size: 0.9rem; color: #405b3f;">
+        德州扑克的深度在于层级嵌套的思考：你思考对手的思考，而对手也在思考你如何思考他的思考。保持策略弹性，定期回顾手牌历史，是进步最直接的路径。
+    </p>
+
+    <div class="footnote">
+        内容基于策略框架与常见扑克逻辑 · 决策环境因人而异
+    </div>
+
+</div>
+</body>
+</html>
