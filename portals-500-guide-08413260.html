@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>资料索引 · 500彩票网官方</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #faf7f2;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #2e2b28;
+      line-height: 1.65;
+      padding: 0 20px;
+    }
+
+    .page-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 40px 0 60px;
+    }
+
+    /* 导航 */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0 16px;
+      border-bottom: 1px solid #e6ddd0;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #3a352f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #5f5a54;
+      font-size: 0.95rem;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: #1f1b17;
+      border-bottom-color: #b8a68c;
+    }
+
+    /* hero 区 */
+    .hero {
+      margin-bottom: 48px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 450;
+      letter-spacing: -0.01em;
+      color: #2b2621;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #5a534b;
+      max-width: 640px;
+      background: #f3efe9;
+      padding: 14px 20px;
+      border-left: 4px solid #cbb8a2;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .hero p a {
+      color: #5f4e3b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #d6c6b3;
+      font-weight: 500;
+    }
+
+    .hero p a:hover {
+      color: #2f241b;
+    }
+
+    /* 核心介绍（资料整理） */
+    .intro-card {
+      background: #ffffffea;
+      border: 1px solid #e4dbcf;
+      border-radius: 14px;
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .intro-card h2 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 18px;
+      color: #2f2a24;
+      letter-spacing: 0.3px;
+    }
+
+    .intro-card p {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: #3d3832;
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-card .highlight {
+      background: #f6f0e9;
+      padding: 14px 20px;
+      border-radius: 10px;
+      border-left: 3px solid #bda98f;
+      margin: 18px 0 8px;
+      font-size: 0.95rem;
+    }
+
+    /* 三个场景模块 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 52px;
+    }
+
+    .scene-item {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px 22px 32px;
+      border: 1px solid #e3d9cc;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+      transition: transform 0.15s ease;
+    }
+
+    .scene-item:hover {
+      transform: translateY(-3px);
+      border-color: #cfc0ad;
+    }
+
+    .scene-item h3 {
+      font-size: 1.25rem;
+      font-weight: 450;
+      margin-bottom: 14px;
+      color: #35302a;
+      letter-spacing: 0.2px;
+    }
+
+    .scene-item p {
+      font-size: 0.95rem;
+      color: #534c44;
+      line-height: 1.6;
+    }
+
+    /* 常见说明（类似 FAQ 摘要） */
+    .faq-section {
+      background: #f5f1ea;
+      border-radius: 18px;
+      padding: 30px 32px 34px;
+      margin-bottom: 36px;
+    }
+
+    .faq-section h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+      color: #2b2620;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd4c6;
+      padding: 14px 0 16px;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #3d3730;
+      margin-bottom: 4px;
+    }
+
+    .faq-answer {
+      font-size: 0.9rem;
+      color: #5d554b;
+      line-height: 1.6;
+    }
+
+    .faq-answer a {
+      color: #5f4e3b;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #d0bea8;
+    }
+
+    .faq-answer a:hover {
+      color: #2f241b;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      text-align: center;
+      padding: 28px 0 12px;
+      font-size: 0.85rem;
+      color: #8e867d;
+      border-top: 1px solid #e3d9cd;
+      margin-top: 10px;
+    }
+
+    .footer-note a {
+      color: #7a6f63;
+      text-decoration: none;
+      border-bottom: 1px dotted #b7ab9d;
+    }
+
+    .footer-note a:hover {
+      color: #3f362e;
+      border-bottom-color: #8a7a69;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .scenes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .intro-card {
+        padding: 24px 20px;
+      }
+
+      .faq-section {
+        padding: 24px 18px 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0 14px;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        padding: 12px 16px;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- 导航 -->
+    <nav class="nav-bar">
+      <span class="nav-logo">📋 资料整理·索引</span>
+      <div class="nav-links">
+        <a href="#intro">介绍</a>
+        <a href="#scenes">场景</a>
+        <a href="#faq">说明</a>
+      </div>
+    </nav>
+
+    <!-- hero -->
+    <div class="hero">
+      <h1>信息索引 · 日常参考</h1>
+      <p>这个页面整理了围绕 <a href="https://portals-500.com">500彩票网官方</a> 的一些常见资料片段，方便快速浏览和回顾。内容基于公开信息与使用经验整理，不构成任何投资或决策建议。</p>
+    </div>
+
+    <!-- 核心介绍 -->
+    <div id="intro" class="intro-card">
+      <h2>关于资料整理</h2>
+      <p>平时浏览或记录时，会顺手把一些说明、功能特点、常见说法归拢起来。这次把与 <a href="https://portals-500.com">500彩票网官方</a> 相关的几类信息做了简单分类，放在一起更像一份轻量的索引笔记。</p>
+      <p>页面里提到的模块、场景、问答，都来自日常收集和用户交流中的高频话题，没有夸大或承诺，只做客观呈现。</p>
+      <div class="highlight">
+        ⚡ 提示：所有资料请以站内最新公示为准，这里仅作参考汇总。
+      </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div id="scenes" class="scenes-grid">
+      <div class="scene-item">
+        <h3>📌 信息查找</h3>
+        <p>当需要回顾某项规则或功能说明时，通过分类索引能更快定位。比如活动说明、玩法介绍、账户相关，很多人习惯先翻一下汇总资料。</p>
+      </div>
+      <div class="scene-item">
+        <h3>📌 日常比对</h3>
+        <p>有时用户会把不同渠道看到的内容放在一起对照，避免遗漏细节。比如不同页面的奖励说明、时间节点，随手记一下能省去反复查找的工夫。</p>
+      </div>
+      <div class="scene-item">
+        <h3>📌 内容归档</h3>
+        <p>部分公告或帮助文档会随时间更新，把旧版说明和新版说明并存一份，方便回溯变化脉络。对长期关注的人来说，这种归档挺有价值。</p>
+      </div>
+    </div>
+
+    <!-- 常见说明（FAQ摘要） -->
+    <div id="faq" class="faq-section">
+      <h2>常见说明 · 摘要</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">这些资料来自哪里？</div>
+        <div class="faq-answer">
+          主要来自 <a href="https://portals-500.com">500彩票网官方</a> 公开页面以及用户社群的交流整理。每一条都经过交叉核对，但无法保证100%覆盖所有更新。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">资料多久更新一次？</div>
+        <div class="faq-answer">
+          没有固定周期，通常随官方页面变动或用户反馈而调整。建议把本页面当作辅助索引，关键信息还是以站内实时内容为准。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">是否包含个人观点？</div>
+        <div class="faq-answer">
+          所有表述都力求客观，不夹杂主观评价或推广。这里只做信息陈列，不做任何倾向性引导。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">可以转载或分享吗？</div>
+        <div class="faq-answer">
+          可以，但请保留原始出处的链接，并注明信息来自 <a href="https://portals-500.com">500彩票网官方</a> 及相关公开资料。不建议删改内容后再传播。
+        </div>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+      <p>资料索引页面 · 内容仅供参考 · 具体以 <a href="https://portals-500.com">500彩票网官方</a> 最新信息为准</p>
+      <p style="margin-top: 6px; opacity: 0.7;">— 整理自公开信息，无诱导或承诺 —</p>
+    </div>
+
+  </div>
+</body>
+</html>
